@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joao Roccella">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --cor-fundo: #000;
+            --cor-primaria: #fff;
+            /* scroll-behavior: smooth; */
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+        }
+
+        #texto {
+            width: 90%;
+            margin: auto;
+            background-color: var(--cor-fundo);
+        }
+
+        #texto p {
+            font-size: 3rem;
+            font-family: 'Noto Sans', sans-serif;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        .texto-normal {
+            transform: scale(1, 1);
+            transition: all .3s;
+        }
+
+        .texto-invertido {
+            -moz-transform: scale(-1, 1);
+            -webkit-transform: scale(-1, 1);
+            -o-transform: scale(-1, 1);
+            -ms-transform: scale(-1, 1);
+            transform: scale(-1, 1);
+            transition: all .3s;
+        }
+
+        #controles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controles">
+        <button type="button" onclick="toggleAutoScroll()">Iniciar/Pausar</button>
+        <button type="button" onclick="vaiParaInicio()">Início</button>
+        <button type="button" onclick="vaiParaFinal()">Final</button>
+        <button type="button" onclick="inverteTexto()">Inverter Texto</button>
+    </div>
+    <div id="texto">
+        <p class="texto-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, odit. Laborum totam fuga quos natus sequi
+            minima quasi debitis cumque eligendi harum laboriosam, facere inventore asperiores maxime delectus
+            dignissimos hic consequuntur quam illo autem nam quis? Sint, error! Veritatis, consequuntur. Deleniti
+            officia blanditiis dolor. Necessitatibus pariatur velit ipsum qui commodi.</p>
+        <p>Eligendi officiis placeat sit consequatur architecto. Odit nostrum recusandae voluptate non dicta nobis illum
+            unde. Ea sit, perspiciatis illum possimus, accusamus accusantium nemo quae placeat voluptas ipsa est nam?
+            Alias laboriosam quo eligendi odit vel aspernatur adipisci quam nulla ut ipsam veniam facere eius
+            consequatur commodi dignissimos nam, aperiam obcaecati?</p>
+        <p>Ad officiis quae numquam distinctio ullam modi placeat quasi fuga similique tenetur! Atque consequuntur
+            debitis nulla quas voluptas molestias enim aut eius? Quas modi et obcaecati, quibusdam libero, sit ipsa
+            nihil vitae rerum quam exercitationem nam blanditiis quos consequatur soluta inventore facere iste nisi ea
+            tempora excepturi ratione amet perferendis?</p>
+        <p>Temporibus dolore a similique magnam sapiente perspiciatis explicabo. Sit, atque rerum? Cumque atque corporis
+            quisquam, nesciunt obcaecati ipsam eaque et soluta numquam tempora ea quam. Soluta hic veritatis tenetur
+            iste dolores facere nam consequatur. Iusto maiores nostrum odit blanditiis eveniet consequatur neque odio
+            possimus itaque. Quo tempore id blanditiis cumque!</p>
+        <p>A facere nulla quos earum id iure dolore saepe recusandae perferendis doloremque quam repellendus tempora ex
+            repellat similique iste consectetur vero doloribus ipsam animi, adipisci beatae debitis? Ut, neque! Eos
+            voluptates accusantium laudantium dolor, saepe minima fuga? Nam iure ullam dolore eaque eligendi quidem,
+            magnam, incidunt, itaque modi velit facilis?</p>
+        <p>Repudiandae nihil et non nam, dignissimos voluptates fuga totam cumque, mollitia debitis ratione quod
+            aspernatur natus. Expedita cumque obcaecati voluptas. Molestias necessitatibus aperiam odio, veniam at,
+            doloribus iure cum quibusdam perferendis, quidem laboriosam quaerat voluptates delectus sed molestiae!
+            Accusamus autem earum recusandae animi adipisci ratione reprehenderit cumque veniam, quia nihil!</p>
+        <p>Voluptas vel similique qui officiis illum, vitae harum accusamus, ratione ea nobis cum ipsa nam cumque.
+            Numquam unde, veritatis necessitatibus dolorum totam nesciunt vel consequatur velit cum, nostrum nihil
+            doloremque, temporibus tenetur molestiae suscipit dolor fugiat ipsam fugit. Vel, distinctio delectus? Quis
+            iusto aperiam numquam facilis animi dolores excepturi error!</p>
+        <p>A esse pariatur iure perspiciatis. Voluptatibus necessitatibus ad soluta, beatae, veritatis laudantium
+            assumenda ipsam natus excepturi nam qui iusto vitae, explicabo voluptate delectus illum? Omnis, nesciunt
+            repudiandae nulla mollitia eum corporis deserunt sequi velit? In consequatur ut debitis eveniet fugit sed
+            dolor ratione aperiam ad quas. Pariatur, cum! Error, deserunt.</p>
+        <p>Fuga vel ipsa atque incidunt recusandae, porro officia maxime odit consectetur necessitatibus tenetur minus,
+            suscipit dolorem molestiae quis nulla eos! Nisi esse sit inventore adipisci velit, animi ullam voluptas
+            nostrum ipsa, earum autem necessitatibus voluptatum similique id quaerat et quam, nobis dolore
+            exercitationem consectetur nemo fugiat. Dolorum dignissimos ipsa sed.</p>
+        <p>Commodi, perferendis enim! Neque explicabo quo illo similique sequi amet ab eligendi libero ea voluptate
+            tempore minus praesentium quibusdam magni, modi reiciendis ratione perspiciatis repellendus, ad impedit nisi
+            iure delectus! Illo inventore magni odio beatae suscipit qui! Praesentium totam quasi, temporibus laudantium
+            voluptatibus, doloremque voluptatum dolorem enim recusandae, nulla animi?</p>
+    </div>
+
+    <script>
+        let autoScrollAtivo = false;
+
+        const atraso = (ms = 0) => new Promise(resposta => setTimeout(resposta, ms));
+
+        const autoScroll = async () => {
+
+            const bodyElement = document.querySelector('body');
+
+            if (!bodyElement) {
+                console.error("Elemento 'body' não encontrado.");
+                return;
+            }
+
+            const limiteScroll = bodyElement.clientHeight - window.innerHeight;
+
+            while (document.documentElement.scrollTop < limiteScroll && autoScrollAtivo) {
+
+                window.scrollBy(0, 1);
+                await atraso(20);
+            }
+
+        }
+
+        const vaiParaInicio = async () => {
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        }
+
+        function vaiParaFinal() {
+
+            const posicaoFinal = document.querySelector('body').clientHeight - window.innerHeight;
+
+            window.scrollTo({ top: posicaoFinal, behavior: 'smooth' });
+
+        }
+
+        const toggleAutoScroll = () => {
+
+            autoScrollAtivo = !autoScrollAtivo;
+
+            if (autoScrollAtivo) {
+                autoScroll();
+            }
+        }
+
+        const inverteTexto = () => {
+            document.querySelectorAll('#texto p').forEach(p => {
+                p.classList.toggle('texto-invertido');
+                p.classList.toggle('texto-normal');
+            })
+        }
+    </script>
+</body>
+
+</html>
