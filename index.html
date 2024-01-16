@@ -6,68 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Joao Roccella">
     <title>Teleprompter JS</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --cor-fundo: #000;
-            --cor-primaria: #fff;
-            /* scroll-behavior: smooth; */
-        }
-
-        body {
-            background-color: var(--cor-fundo);
-        }
-
-        #texto {
-            width: 90%;
-            margin: auto;
-            background-color: var(--cor-fundo);
-        }
-
-        #texto p {
-            font-size: 3rem;
-            font-family: 'Noto Sans', sans-serif;
-            color: var(--cor-primaria);
-            line-height: 1.5;
-        }
-
-        .texto-normal {
-            transform: scale(1, 1);
-            transition: all .3s;
-        }
-
-        .texto-invertido {
-            -moz-transform: scale(-1, 1);
-            -webkit-transform: scale(-1, 1);
-            -o-transform: scale(-1, 1);
-            -ms-transform: scale(-1, 1);
-            transform: scale(-1, 1);
-            transition: all .3s;
-        }
-
-        #controles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <div id="controles">
         <button type="button" onclick="toggleAutoScroll()">Iniciar/Pausar</button>
         <button type="button" onclick="vaiParaInicio()">Início</button>
         <button type="button" onclick="vaiParaFinal()">Final</button>
         <button type="button" onclick="inverteTexto()">Inverter Texto</button>
     </div>
+
     <div id="texto">
         <p class="texto-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, odit. Laborum totam fuga quos natus sequi
             minima quasi debitis cumque eligendi harum laboriosam, facere inventore asperiores maxime delectus
@@ -111,60 +61,7 @@
             voluptatibus, doloremque voluptatum dolorem enim recusandae, nulla animi?</p>
     </div>
 
-    <script>
-        let autoScrollAtivo = false;
-
-        const atraso = (ms = 0) => new Promise(resposta => setTimeout(resposta, ms));
-
-        const autoScroll = async () => {
-
-            const bodyElement = document.querySelector('body');
-
-            if (!bodyElement) {
-                console.error("Elemento 'body' não encontrado.");
-                return;
-            }
-
-            const limiteScroll = bodyElement.clientHeight - window.innerHeight;
-
-            while (document.documentElement.scrollTop < limiteScroll && autoScrollAtivo) {
-
-                window.scrollBy(0, 1);
-                await atraso(20);
-            }
-
-        }
-
-        const vaiParaInicio = async () => {
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        }
-
-        function vaiParaFinal() {
-
-            const posicaoFinal = document.querySelector('body').clientHeight - window.innerHeight;
-
-            window.scrollTo({ top: posicaoFinal, behavior: 'smooth' });
-
-        }
-
-        const toggleAutoScroll = () => {
-
-            autoScrollAtivo = !autoScrollAtivo;
-
-            if (autoScrollAtivo) {
-                autoScroll();
-            }
-        }
-
-        const inverteTexto = () => {
-            document.querySelectorAll('#texto p').forEach(p => {
-                p.classList.toggle('texto-invertido');
-                p.classList.toggle('texto-normal');
-            })
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
