@@ -22,16 +22,18 @@ const autoScroll = async () => {
 }
 
 const vaiParaInicio = async () => {
-
+   
+    autoScrollAtivo = false;
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
 }
 
 function vaiParaFinal() {
+   
+    autoScrollAtivo = false;
 
-    const posicaoFinal = document.querySelector('body').clientHeight - window.innerHeight;
-
-    window.scrollTo({ top: posicaoFinal, behavior: 'smooth' });
+    window.scrollTo({ top: document.querySelector('body').clientHeight, behavior: 'smooth' });
 
 }
 
