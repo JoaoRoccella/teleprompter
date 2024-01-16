@@ -4,19 +4,15 @@ const atraso = (ms = 0) => new Promise(resposta => setTimeout(resposta, ms));
 
 const autoScroll = async () => {
 
-    const bodyElement = document.querySelector('body');
-
-    if (!bodyElement) {
-        console.error("Elemento 'body' não encontrado.");
-        return;
-    }
-
-    const limiteScroll = bodyElement.clientHeight;
+    // FIX de onde veio esse 182????
+    const limiteScroll = document.body.clientHeight - 182;
+    console.log(limiteScroll);
 
     while (document.documentElement.scrollTop < limiteScroll && autoScrollAtivo) {
+        console.log(document.documentElement.scrollTop);
 
-        window.scrollBy(0, 1);
-        await atraso(20);
+        document.scrollingElement.scrollBy(0, 1);
+        await new Promise(resolve => setTimeout(resolve, 20));
     }
 
 }
