@@ -11,7 +11,7 @@ const autoScroll = async () => {
         return;
     }
 
-    const limiteScroll = bodyElement.clientHeight - window.innerHeight;
+    const limiteScroll = bodyElement.clientHeight;
 
     while (document.documentElement.scrollTop < limiteScroll && autoScrollAtivo) {
 
