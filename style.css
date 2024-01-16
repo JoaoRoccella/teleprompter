@@ -16,8 +16,8 @@ body {
 }
 
 #texto {
-    width: 90%;
-    margin: auto;
+    width: 80%;
+    margin: 35vh auto;
     background-color: var(--cor-fundo);
 }
 
@@ -47,5 +47,6 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 5px;
     z-index: 1;
 }
