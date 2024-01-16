@@ -14,10 +14,19 @@
 <body>
 
     <div id="controles">
-        <button type="button" onclick="toggleAutoScroll()">Iniciar/Pausar</button>
-        <button type="button" onclick="vaiParaInicio()">Início</button>
-        <button type="button" onclick="vaiParaFinal()">Final</button>
-        <button type="button" onclick="inverteTexto()">Inverter Texto</button>
+        <button type="button" onclick="toggleAutoScroll()" title="Iniciar/Pausar">
+            <i class="bi bi-play-fill"></i>
+            <i class="bi bi-pause-fill"></i>
+        </button>
+        <button type="button" onclick="vaiParaInicio()" title="Início">
+            <i class="bi bi-skip-start-fill"></i>
+        </button>
+        <button type="button" onclick="vaiParaFinal()" title="Final">
+            <i class="bi bi-skip-end-fill"></i>
+        </button>
+        <button type="button" onclick="inverteTexto()" title="Inverter Texto">
+            <i class="bi bi-phone-flip"></i>
+        </button>
     </div>
 
     <div id="texto">
